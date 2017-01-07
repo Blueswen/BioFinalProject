@@ -25,20 +25,20 @@ Reproduce [Shiao, M.-S. S. et al. Expression Divergence of Chemosensory Genes be
   $ bowtie2-build sample/genome.fa sample/genome/genome
   ```
 3. Prepare fqlist file and grouplist files
-  1. fqlist file example:
-  ```
-  ID001_1.fastq,ID001_2.fastq
-  ID002_1.fastq,ID002_2.fastq
-  ID003_1.fastq,ID003_2.fastq
-  ID004_1.fastq,ID004_2.fastq
-  ...
-  ```
-  2. grouplist file example:
-  ```
-  ID001,ID002,...
-  ID003,ID004,...
-  ...
-  ```
+  * fqlist file example:
+    ```
+    ID001_1.fastq,ID001_2.fastq
+    ID002_1.fastq,ID002_2.fastq
+    ID003_1.fastq,ID003_2.fastq
+    ID004_1.fastq,ID004_2.fastq
+    ...
+    ```
+  * grouplist file example:
+    ```
+    ID001,ID002,...
+    ID003,ID004,...
+    ...
+    ```
 4. Execute Nextflow script
   ```
   $ nextflow main.nf --p 8 --fqlist sample/fqlist.txt\
