@@ -217,7 +217,7 @@ process Cuffdiff {
       group_str = "${group_str} "
     }
     """
-    cuffdiff –no-update-check -o diff_out -b $fa_file -p $params.p -u $merged_gtf ${group_str}
+    cuffdiff -o diff_out -b $fa_file -p $params.p -u $merged_gtf ${group_str}
     """
 
 }
