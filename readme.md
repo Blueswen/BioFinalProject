@@ -42,12 +42,12 @@ $ bowtie2-build sample/genome.fa sample/genome/genome
 4. Execute Nextflow script
 ```
 $ nextflow main.nf --p 8 --fqlist sample/fqlist.txt\
-                    --fqpath sample/fq/GSE67587/\
-                    --grouplist sample/grouplist.txt\
-                    --genome sample/genome/genome
-                    --gtf sample/gene.gtf\
-                    --fa sample/genome.fa\
-                    --output results/\
+                   --fqpath sample/fq/GSE67587/\
+                   --grouplist sample/grouplist.txt\
+                   --genome sample/genome/genome
+                   --gtf sample/gene.gtf\
+                   --fa sample/genome.fa\
+                   --output results/\
 ```
 5. Execute R Script
 ```
