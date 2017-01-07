@@ -7,7 +7,6 @@ Reproduce [Shiao, M.-S. S. et al. Expression Divergence of Chemosensory Genes be
 ### Members
 1. [Blueswen](https://github.com/Blueswen): Write Nextflow Script
 
-
 ### Data
 1. [Sample Data]()
 2. [Experiment Data and Results]()
@@ -56,8 +55,11 @@ Reproduce [Shiao, M.-S. S. et al. Expression Divergence of Chemosensory Genes be
   ```
 
 ### Q&A
-1. Cannot install CummeRbund
+1. Install CummeRbund Problems
+  1. [Install  CummeRbund](https://bioconductor.org/packages/release/bioc/html/cummeRbund.html)
+  2. [Upgrade Bioconductor to the latest version available for this version of R](https://rdrr.io/bioc/BiocInstaller/man/BiocUpgrade.html)
+  3. [Question: errors when installing cummeRbund package](https://support.bioconductor.org/p/61555/)
 
 ### Reference
-1. [Shiao, M.-S. S. et al. Expression Divergence of Chemosensory Genes between Drosophila sechellia and Its Sibling Species and Its Implications for Host Shift. Genome Biol Evol 7, 2843–58 (2015)](https://www.ncbi.nlm.nih.gov/pubmed/26430061)
-2.
+1. [Shiao, M.-S. S. et al. Expression Divergence of Chemosensory Genes between Drosophila sechellia and Its Sibling Species and Its Implications for Host Shift. Genome Biol Evol 7, 2843–58 (2015).](https://www.ncbi.nlm.nih.gov/pubmed/26430061)
+2. [Trapnell, C. et al. Differential gene and transcript expression analysis of RNA-seq experiments with TopHat and Cufflinks. Nat Protoc 7, 562–578 (2014).](http://www.nature.com/nprot/journal/v7/n3/full/nprot.2012.016.html)
