@@ -141,7 +141,7 @@ process CreateAssemblyFile{
   output:
     file assembly_file
 
-  exec:
+  script:
     if( state == "execute" ){
       thout_folder.moveTo("${output_folder}/${id}_thout")
       clout_folder.moveTo("${output_folder}/${id}_clout")
@@ -167,7 +167,7 @@ process Cuffmerge {
   output:
     set ( state, file(merged_asm) ) into merge_res
 
-  exec:
+  script:
     state = ""
     if( file("${output_folder}/merged_asm").exists() ){
       state = "exists"
@@ -199,7 +199,7 @@ process Cuffdiff {
   output:
     file diff_out
 
-  exec:
+  script:
     if( state == "execute" ){
       merged_asm.moveTo("${output_folder}/merged_asm")
     }
