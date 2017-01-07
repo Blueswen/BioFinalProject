@@ -117,16 +117,18 @@ process AlignAndAssemble {
       fq2 = file("${params.fqpath}${fq2}")
     }
 
-    if( state == "exists" )
+    if( state == "exists" ){
       """
       echo "exists" > thout_folder
       echo "exists" > clout_folder
       """
-    else
+    }
+    else{
       """
       tophat -p $params.p -G $gtf_file -o thout_folder $genome_folder/genome $fq1 $fq2
       cufflinks -p $params.p -o clout_folder thout_folder/accepted_hits.bam
       """
+    }
 }
 
 /*
