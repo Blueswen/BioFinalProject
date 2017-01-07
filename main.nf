@@ -107,6 +107,7 @@ process AlignAndAssemble {
 
   exec:
     id = fq1.split('_')[0]
+    state = ""
     if( file("${output_folder}/${id}_thout").exists() & file("${output_folder}/${id}_clout").exists() ){
       state = "exists"
     }
@@ -165,6 +166,7 @@ process Cuffmerge {
     set state, file merged_asm into merge_res
 
   exec:
+    state = ""
     if( file("${output_folder}/merged_asm").exists() ){
       state = "exists"
     }
