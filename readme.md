@@ -26,19 +26,19 @@ Reproduce [Shiao, M.-S. S. et al. Expression Divergence of Chemosensory Genes be
   ```
 3. Prepare fqlist file and grouplist files
   * fqlist file example:
-    ```
-    ID001_1.fastq,ID001_2.fastq
-    ID002_1.fastq,ID002_2.fastq
-    ID003_1.fastq,ID003_2.fastq
-    ID004_1.fastq,ID004_2.fastq
-    ...
-    ```
+  ```
+  ID001_1.fastq,ID001_2.fastq
+  ID002_1.fastq,ID002_2.fastq
+  ID003_1.fastq,ID003_2.fastq
+  ID004_1.fastq,ID004_2.fastq
+  ...
+  ```
   * grouplist file example:
-    ```
-    ID001,ID002,...
-    ID003,ID004,...
-    ...
-    ```
+  ```
+  ID001,ID002,...
+  ID003,ID004,...
+  ...
+  ```
 4. Execute Nextflow script
   ```
   $ nextflow main.nf --p 8 --fqlist sample/fqlist.txt\
