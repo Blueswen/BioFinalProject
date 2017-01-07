@@ -98,10 +98,10 @@ process AlignAndAssemble {
   maxForks 1
 
   input:
-    set fq1, fq2 from fq_pairs
+    set ( fq1, fq2 ) from fq_pairs
 
   output:
-    set state, id, file('thout_folder'), file('clout_folder') into thcls
+    set ( state, id, file('thout_folder'), file('clout_folder') ) into thcls
     file thout_folder
     file clout_folder
 
@@ -134,7 +134,7 @@ process AlignAndAssemble {
  */
 process CreateAssemblyFile{
   input:
-    set state, id, thout_folder, clout_folder from thcls
+    set ( state, id, thout_folder, clout_folder ) from thcls
 
   output:
     file assembly_file
@@ -163,7 +163,7 @@ process Cuffmerge {
     file assemblies_file
 
   output:
-    set state, file merged_asm into merge_res
+    set ( state, file(merged_asm) ) into merge_res
 
   exec:
     state = ""
@@ -193,7 +193,7 @@ process Cuffmerge {
 process Cuffdiff {
 
   input:
-    set state, file merged_asm from merge_res
+    set ( state, file(merged_asm) ) from merge_res
   output:
     file diff_out
 
