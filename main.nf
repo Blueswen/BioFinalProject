@@ -101,20 +101,32 @@ process AlignAndAssemble {
     set fq1, fq2 from fq_pairs
 
   output:
-    set id, file('thout_folder'), file('clout_folder') into thcls
+    set state, id, file('thout_folder'), file('clout_folder') into thcls
     file thout_folder
     file clout_folder
 
   exec:
     id = fq1.split('_')[0]
-    fq1 = file("${params.fqpath}${fq1}")
-    fq2 = file("${params.fqpath}${fq2}")
+    if( file("${output_folder}/${id}_thout").exists() & file("${output_folder}/${id}_clout").exists() ){
+      state = "exists"
+    }
+    else{
+      state = "execute"
+      fq1 = file("${params.fqpath}${fq1}")
+      fq2 = file("${params.fqpath}${fq2}")
+    }
 
   script:
-    """
-    tophat -p $params.p -G $gtf_file -o thout_folder $genome_folder/genome $fq1 $fq2
-    cufflinks -p $params.p -o clout_folder thout_folder/accepted_hits.bam
-    """
+    if( state == "exists" )
+      """
+      echo "exists" > thout_folder
+      echo "exists" > clout_folder
+      """
+    else
+      """
+      tophat -p $params.p -G $gtf_file -o thout_folder $genome_folder/genome $fq1 $fq2
+      cufflinks -p $params.p -o clout_folder thout_folder/accepted_hits.bam
+      """
 }
 
 /*
@@ -122,14 +134,16 @@ process AlignAndAssemble {
  */
 process CreateAssemblyFile{
   input:
-    set id, thout_folder, clout_folder from thcls
+    set state, id, thout_folder, clout_folder from thcls
 
   output:
     file assembly_file
 
   exec:
-    thout_folder.moveTo("${output_folder}/${id}_thout")
-    clout_folder.moveTo("${output_folder}/${id}_clout")
+    if( state == "execute" ){
+      thout_folder.moveTo("${output_folder}/${id}_thout")
+      clout_folder.moveTo("${output_folder}/${id}_clout")
+    }
 
   script:
     """
@@ -150,12 +164,25 @@ process Cuffmerge {
     file assemblies_file
 
   output:
-    file merged_asm
+    set state, file merged_asm into merge_res
+
+  exec:
+    if( file("${output_folder}/merged_asm").exists() ){
+      state = "exists"
+    }
+    else{
+      state = "execute"
+    }
 
   script:
-    """
-    cuffmerge -g $gtf_file -s $fa_file -p $params.p $assemblies_file
-    """
+    if( state == "exists" )
+      """
+      echo "exists" > merged_asm
+      """
+    else
+      """
+      cuffmerge -g $gtf_file -s $fa_file -p $params.p $assemblies_file
+      """
 
 }
 
@@ -167,12 +194,14 @@ process Cuffmerge {
 process Cuffdiff {
 
   input:
-    file merged_asm
+    set state, file merged_asm from merge_res
   output:
     file diff_out
 
   exec:
-    merged_asm.moveTo("${output_folder}/merged_asm")
+    if( state == "execute" ){
+      merged_asm.moveTo("${output_folder}/merged_asm")
+    }
     merged_gtf = file("${output_folder}/merged_asm/merged.gtf")
     groups = grouplist_file.text.split('\n')
     group_str = ""
