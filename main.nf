@@ -209,7 +209,7 @@ process Cuffdiff {
     for( i=0 ; i<groups.length ; i=i+1 ){
       entries = groups[i].split(',')
       for( j=0 ; j<entries.length ; j=j+1 ){
-        group_str = "${group_str}${output_folder}/entries[j]_thout/accepted_hits.bam"
+        group_str = "${group_str}${output_folder}/${entries[j]}_thout/accepted_hits.bam"
         if( j!=entries.length-1 ){
           group_str = "${group_str},"
         }
