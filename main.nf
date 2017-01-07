@@ -194,4 +194,6 @@ process Cuffdiff {
 
 }
 
-diff_out.moveTo("${output_folder}/diff_out")
+diff_out.subscirbe{
+  it.moveTo("${output_folder}/diff_out")
+}
