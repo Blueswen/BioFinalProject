@@ -116,7 +116,6 @@ process AlignAndAssemble {
       fq2 = file("${params.fqpath}${fq2}")
     }
 
-  script:
     if( state == "exists" )
       """
       echo "exists" > thout_folder
@@ -145,7 +144,6 @@ process CreateAssemblyFile{
       clout_folder.moveTo("${output_folder}/${id}_clout")
     }
 
-  script:
     """
     touch assemblies_file
     echo ${output_folder}/${id}_clout/transcripts.gtf > assembly_file
@@ -174,7 +172,6 @@ process Cuffmerge {
       state = "execute"
     }
 
-  script:
     if( state == "exists" )
       """
       echo "exists" > merged_asm
@@ -216,7 +213,6 @@ process Cuffdiff {
       group_str = "${group_str} "
     }
 
-  script:
     """
     cuffdiff –no-update-check -o diff_out -b $fa_file -p $params.p -u $merged_gtf ${group_str}
     """
