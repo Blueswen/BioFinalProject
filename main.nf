@@ -195,7 +195,7 @@ process Cuffmerge {
 process Cuffdiff {
 
   input:
-    set ( state, file(merged_asm) ) from merge_res
+    set ( state, merged_asm ) from merge_res
   output:
     file diff_out
 
@@ -216,7 +216,6 @@ process Cuffdiff {
       }
       group_str = "${group_str} "
     }
-
     """
     cuffdiff –no-update-check -o diff_out -b $fa_file -p $params.p -u $merged_gtf ${group_str}
     """
