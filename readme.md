@@ -20,10 +20,11 @@ Reproduce [Shiao, M.-S. S. et al. Expression Divergence of Chemosensory Genes be
 ### Usage
 1. Prepare data: fastq files, fasta file, gtf file
 2. Prepare Bowtie index
-```
-$ mkdir sample/genome
-$ bowtie2-build sample/genome.fa sample/genome/genome
-```
+
+  ```
+  $ mkdir sample/genome
+  $ bowtie2-build sample/genome.fa sample/genome/genome
+  ```
 3. Prepare fqlist file and grouplist files
   * fqlist file example:
   ```
@@ -40,19 +41,21 @@ $ bowtie2-build sample/genome.fa sample/genome/genome
   ...
   ```
 4. Execute Nextflow script
-```
-$ nextflow main.nf --p 8 --fqlist sample/fqlist.txt\
-                   --fqpath sample/fq/GSE67587/\
-                   --grouplist sample/grouplist.txt\
-                   --genome sample/genome/genome
-                   --gtf sample/gene.gtf\
-                   --fa sample/genome.fa\
-                   --output results/\
-```
+
+  ```
+  $ nextflow main.nf --p 8 --fqlist sample/fqlist.txt\
+                     --fqpath sample/fq/GSE67587/\
+                     --grouplist sample/grouplist.txt\
+                     --genome sample/genome/genome
+                     --gtf sample/gene.gtf\
+                     --fa sample/genome.fa\
+                     --output results/\
+  ```
 5. Execute R Script
-```
-$ R plot.r -i results/diff_out -o results/plot/
-```
+
+  ```
+  $ R plot.r -i results/diff_out -o results/plot/
+  ```
 
 ### Q&A
 1. Install CummeRbund Problems
