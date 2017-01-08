@@ -27,7 +27,7 @@ Reproduce [Shiao, M.-S. S. et al. Expression Divergence of Chemosensory Genes be
   ```
 3. Prepare fqlist file and grouplist files
   * fqlist file example:
-  
+
     ```
     ID001_1.fastq,ID001_2.fastq
     ID002_1.fastq,ID002_2.fastq
@@ -36,7 +36,7 @@ Reproduce [Shiao, M.-S. S. et al. Expression Divergence of Chemosensory Genes be
     ...
     ```
   * grouplist file example:
-  
+
     ```
     ID001,ID002,...
     ID003,ID004,...
@@ -56,7 +56,7 @@ Reproduce [Shiao, M.-S. S. et al. Expression Divergence of Chemosensory Genes be
 5. Execute R Script
 
   ```
-  $ R plot.r -i results/diff_out -o results/plot/
+  $ Rscript plot.r -i results/diff_out -o results/plot/
   ```
 
 ### Q&A
