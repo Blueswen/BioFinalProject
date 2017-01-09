@@ -20,7 +20,10 @@ Reproduce [Shiao, M.-S. S. et al. Expression Divergence of Chemosensory Genes be
 1. [TopHat](https://ccb.jhu.edu/software/tophat/index.shtml): RNA-Seq reads mapping
 2. [Cufflinks](http://cole-trapnell-lab.github.io/cufflinks/): Transcriptome assembly and differential expression analysis for RNA-Seq
 3. [CummeRbund](http://compbio.mit.edu/cummeRbund/): R package for data visualiztion
-4. [NextFlow](https://www.nextflow.io/)
+4. [proto](https://cran.r-project.org/web/packages/proto/index.html): R package for argparse
+5. [argparse](https://cran.r-project.org/web/packages/argparse/index.html): R package for parse argv
+6. [ggplot2](https://cran.r-project.org/web/packages/ggplot2/index.html): R package for plot
+6. [NextFlow](https://www.nextflow.io/)
 
 ### Usage
 1. Prepare data: fastq files, fasta file, gtf file
