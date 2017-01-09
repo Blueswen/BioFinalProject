@@ -13,8 +13,8 @@ Reproduce [Shiao, M.-S. S. et al. Expression Divergence of Chemosensory Genes be
 6. 楊子萲: Drosophila sechelia (GSE67861) 序列資料下載、執行、校對、產生 heat map
 
 ### Data
-1. [Sample Data](): Dataset used at Differential gene and transcript expression analysis of RNA-seq experiments with TopHat and Cufflinks
-2. [Experiment Data and Results]()
+1. [Sample Data](https://drive.google.com/open?id=0BzrrKiA0aYbbNUljM0d0Unk2N1U): Dataset used at Differential gene and transcript expression analysis of RNA-seq experiments with TopHat and Cufflinks
+2. [Experiment Data and Results](https://drive.google.com/drive/folders/0B6ckDKQ9DXOjSzZPcmhRV0Nad28?usp=sharing)
 
 ### Dependencies
 1. [TopHat](https://ccb.jhu.edu/software/tophat/index.shtml): RNA-Seq reads mapping
