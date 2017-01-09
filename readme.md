@@ -5,7 +5,12 @@ Final Project on 1051.​Theory and Practice of Bioinformatics at NCCU CS
 Reproduce [Shiao, M.-S. S. et al. Expression Divergence of Chemosensory Genes between Drosophila sechellia and Its Sibling Species and Its Implications for Host Shift. Genome Biol Evol 7, 2843–58 (2015)](https://www.ncbi.nlm.nih.gov/pubmed/26430061)
 
 ### Members
-1. [Blueswen](https://github.com/Blueswen): Write Nextflow Script
+1. 魏孝全: Drosophila simulans (GSE67862)
+2. [Blueswen](https://github.com/Blueswen): Write Nextflow Script, R Script
+3. 江易倫:
+4. 李恭儀: Drosophila sechelia (GSE67861) 資料下載、執行、校對、產生 heat map
+5. 楊宗翰: Drosophila simulans (GSE67862) 資料下載、執行、校對、cummeRbund 視覺化程式修改、heatmap
+6. 楊子萲: Drosophila sechelia (GSE67861) 序列資料下載、執行、校對、產生 heat map
 
 ### Data
 1. [Sample Data](): Dataset used at Differential gene and transcript expression analysis of RNA-seq experiments with TopHat and Cufflinks
@@ -53,10 +58,19 @@ Reproduce [Shiao, M.-S. S. et al. Expression Divergence of Chemosensory Genes be
                      --fa sample/genome.fa\
                      --output results/\
   ```
-5. Execute R Script
+5. Prepare gene name file and gene families file
+  * gene name file: Get gene name from cuff gene short name
+  * gene families file example:
+
+    ```
+    Ir,6642,6682
+    Obp,7093,7142
+    Or,7151,7204
+    ```
+6. Execute R Script
 
   ```
-  $ Rscript plot.r -i results/diff_out -o results/plot/
+  $ Rscript plot_hmap.r -i results/diff_out -l gene_name_list -s target_species_name -r gene_families_file -g group_label1,group_label2 -o results/plot
   ```
 
 ### Q&A
